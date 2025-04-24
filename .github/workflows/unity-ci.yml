@@ -1,0 +1,25 @@
+name: Unity Build
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    name: Build Project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Unity
+        uses: game-ci/unity-actions/setup@v2
+        with:
+          unityVersion: 2022.3.0f1
+
+      - name: Build project
+        uses: game-ci/unity-actions/build@v2
+        with:
+          targetPlatform: StandaloneWindows64
