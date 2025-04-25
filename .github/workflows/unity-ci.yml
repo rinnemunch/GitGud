@@ -11,15 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Unity
-        uses: game-ci/unity-actions/setup@v2
+        uses: game-ci/unity-builder@v4
         with:
           unityVersion: 6000.0.4f1
-
-      - name: Build project
-        uses: game-ci/unity-actions/build@v2
-        with:
           targetPlatform: StandaloneWindows64
